@@ -5,7 +5,7 @@ class impuesto {
     getTasa() {
         return this.tasa;
     }
-    setRate(tasa) {
+    setTasa(tasa) {
         this.tasa = tasa;
     }
   }
