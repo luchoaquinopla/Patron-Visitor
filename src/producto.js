@@ -17,8 +17,8 @@ class producto  {
         this.precio = precio;
     }
     aceptar(visitor) {
-        visitor.visitarProducto(this);
+     visitor.visitarProducto(this);
       }
-   
+ 
   }
   module.exports = producto;

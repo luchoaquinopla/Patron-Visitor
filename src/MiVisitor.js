@@ -6,9 +6,9 @@ class MiVisitor extends visitor {
       this.total = 0;
     }
   
-    visitarProducto(producto) {
-      this.total += producto.getPrecio();
-        return producto.getPrecio(); // Devuelve el precio del producto para poder utilizarlo en otras operaciones
+    aceptar(visitarProducto) {
+      
+        this.total+= visitarProducto.getPrecio(); // Devuelve el precio del producto para poder utilizarlo en otras operaciones
     }
   
     visitarImpuesto(impuesto) {

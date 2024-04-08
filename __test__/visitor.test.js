@@ -13,7 +13,7 @@ test('calcular el total correctamente', () => {
 test('visitarProducto', () => {
     const producto1 = new producto('Producto de prueba', 100);
     const visitor = new MiVisitor();
-    visitor.visitarProducto(producto1);
+    visitor.aceptar(producto1);
     expect(visitor.total).toBe(100); // Accede a la propiedad total a través de la instancia de MiVisitor
 });
 test('visitarImpuesto', () => {
