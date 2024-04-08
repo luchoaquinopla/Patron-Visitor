@@ -8,5 +8,8 @@ class impuesto {
     setTasa(tasa) {
         this.tasa = tasa;
     }
+    aceptar(visitor) {
+      visitor.visitarImpuesto(this);
+    }
   }
   module.exports = impuesto;

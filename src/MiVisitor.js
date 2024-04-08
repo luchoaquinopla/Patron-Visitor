@@ -7,18 +7,20 @@ class MiVisitor extends visitor {
     }
   
     visitarProducto(producto) {
-      this.total += producto.precio;
-      return producto.precio; // Devuelve el precio del producto para poder utilizarlo en otras operaciones
+      this.total += producto.getPrecio();
+        return producto.getPrecio(); // Devuelve el precio del producto para poder utilizarlo en otras operaciones
     }
   
-    visitarImpuesto(tasa, precio) {
-      const impuestoTotal = precio * tasa;
-      this.total = precio + impuestoTotal;
+    visitarImpuesto(impuesto) {
+      const producto = impuesto.producto;
+      const impuestoTotal = producto.getPrecio() * impuesto.getTasa();
+      this.total = impuestoTotal + producto.getPrecio();
   }
   
-    visitarDescuento(descuento,precio) {
-      const descuentoTotal = precio*descuento - precio;
-      this.total -= descuentoTotal;
+    visitarDescuento(descuento) {
+      const producto = descuento.producto;
+      const descuentoTotal = descuento.getCantidad() * producto.getPrecio();
+      this.total = producto.getPrecio() - descuentoTotal;
     }
   }
   

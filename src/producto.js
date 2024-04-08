@@ -16,6 +16,9 @@ class producto  {
     setPrecio(precio) {
         this.precio = precio;
     }
+    aceptar(visitor) {
+        visitor.visitarProducto(this);
+      }
    
   }
   module.exports = producto;

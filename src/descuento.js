@@ -8,5 +8,8 @@ class descuento {
     setCantidad(cantidad){
         this.cantidad = cantidad
     }
+    aceptar(visitor) {
+        visitor.visitarDescuento(this);
+      }
     }
     module.exports = descuento; 
