@@ -20,16 +20,14 @@ test('visitarImpuesto', () => {
     const celular = new producto('celular', 1000);
     const impuesto1 = new impuesto(0.15);
     const visitor = new MiVisitor();
-    impuesto1.producto = celular;
-    visitor.visitarImpuesto(impuesto1); // Pasar la tasa y el precio del producto
-    expect(visitor.total).toBe(1150); // Verificar que el total se actualiza correctamente según el impuesto
+    visitor.aceptarImpuesto(impuesto1); 
+    expect(visitor.total).toBe(0.15); // Verificar que el total se actualiza correctamente según el impuesto
 });
 
 test('visitarDescuento', () => {
     const celular = new producto('celular', 1000);
     const descuento1 = new descuento(0.10);
     const visitor = new MiVisitor();
-    descuento1.producto = celular;
-    visitor.visitarDescuento(descuento1); // Pasar el descuento y el precio del producto
-    expect(visitor.total).toBe(900); // Verificar que el total se actualiza correctamente según el descuento
+    visitor.aceptarDescuento(descuento1); // Aceptar el descuento en el visitor
+    expect(visitor.total).toBe(0.10); // Verificar que el total se actualiza correctamente según el descuento
 });

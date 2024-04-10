@@ -8,7 +8,7 @@ class impuesto {
     setTasa(tasa) {
         this.tasa = tasa;
     }
-    aceptar(visitor) {
+    aceptarImpuesto(visitor) {
       visitor.visitarImpuesto(this);
     }
   }

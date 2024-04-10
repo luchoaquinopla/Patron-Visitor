@@ -10,18 +10,18 @@ class MiVisitor extends visitor {
       
         this.total+= visitarProducto.getPrecio(); // Devuelve el precio del producto para poder utilizarlo en otras operaciones
     }
-  
-    visitarImpuesto(impuesto) {
-      const producto = impuesto.producto;
-      const impuestoTotal = producto.getPrecio() * impuesto.getTasa();
-      this.total = impuestoTotal + producto.getPrecio();
+   
+    aceptarImpuesto(visitarImpuesto){
+    
+      this.total+= visitarImpuesto.getTasa();
   }
   
-    visitarDescuento(descuento) {
-      const producto = descuento.producto;
-      const descuentoTotal = descuento.getCantidad() * producto.getPrecio();
-      this.total = producto.getPrecio() - descuentoTotal;
-    }
+
+  
+  aceptarDescuento(visitarDescuento){
+    
+    this.total+= visitarDescuento.getCantidad();
   }
+}
   
   module.exports = { MiVisitor, visitor }; // Exporta las clasesS

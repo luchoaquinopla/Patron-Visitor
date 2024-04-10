@@ -8,7 +8,7 @@ class descuento {
     setCantidad(cantidad){
         this.cantidad = cantidad
     }
-    aceptar(visitor) {
+    aceptarDescuento(visitor) {
         visitor.visitarDescuento(this);
       }
     }
