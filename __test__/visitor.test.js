@@ -1,40 +1,62 @@
+const Perro = require('../src/Perro');
+const visitantePerro = require('../src/visitantePerro');
+const Gato = require('../src/Gato');
+const visitanteGato = require('../src/visitanteGato');
 
-const producto = require('../src/producto');
-const impuesto = require('../src/impuesto');
-const descuento = require('../src/descuento');
-const { MiVisitor } = require('../src/MiVisitor'); // Importa MiVisitor
-test('calcular el total correctamente', () => {
-    const celular = new producto('celular', 1000);
-    const impuestoproducto = new impuesto(0.15);
-    const descuentoproducto = new descuento(0.10);
-   expect(celular.getNombre()).toBe('celular');
-   expect(celular.getPrecio()).toBe(1000);
+test('datos perro', () => {
+const perro = new Perro('Pepe',12);
+const visitor = new visitantePerro();
+perro.aceptar(visitor);
+expect(perro.getNombre()).toBe('Pepe');
+expect(perro.getEdad()).toBe(12);
+   
 });
-test('visitarProducto', () => {
-    const producto1 = new producto('Producto de prueba', 100);
-    const visitor = new MiVisitor();
-    visitor.visitarProducto(producto1);
-    expect(visitor.total).toBe(100)
-    expect(visitor.totalNombre).toBe('Producto de prueba'); // Accede a la propiedad total a través de la instancia de MiVisitor
-});
-test('visitarImpuesto', () => {
-    const celular = new producto('celular', 1000);
-    const impuesto1 = new impuesto(0.15);
-    const visitor = new MiVisitor();
-    impuesto1.producto = celular;
-    visitor.visitarImpuesto(impuesto1); 
-    expect(visitor.totalTasa).toBe(0.15);
-    expect(visitor.total).toBe(1150); // Verificar que el total se actualiza correctamente según el impuesto
-});
-
-test('visitarDescuento', () => {
-    const celular = new producto('celular', 1000);
-    const descuento1 = new descuento(0.10);
-    const visitor = new MiVisitor();
-    descuento1.producto = celular;
-    visitor.visitarDescuento(descuento1); // Aceptar el descuento en el visitor
-    expect(visitor.totalDescuento).toBe(900);
-    expect(visitor.totalCantidad).toBe(0.10); // Verificar que el total se actualiza correctamente según el descuento
-});
-
+    test('datos gato', () => {
+    const gato = new Gato('Don Gato',12);
+    const visitor = new visitanteGato();
+    gato.aceptar(visitor);
+    expect(gato.getNombre()).toBe('Don Gato');
+    expect(gato.getEdad()).toBe(12);
+       
+    });
+    test('calcular años perrunos a años humanos', () => {
+        const perro = new Perro('Pepe',12);
+        const visitor = new visitantePerro();
+        perro.aceptar(visitor);
+        expect(perro.getNombre()).toBe('Pepe');
+        expect(perro.getEdad()).toBe(12);
+        expect(visitor.totalEdad).toBe(84);
+           
+        });
+    test('calcular años gatunos a años humanos', () => {
+            const gato = new Gato('Pepe',10);
+            const visitor = new visitanteGato();
+            gato.aceptar(visitor);
+            expect(gato.getNombre()).toBe('Pepe');
+            expect(gato.getEdad()).toBe(10);
+            expect(visitor.totalEdad).toBe(70);
+               
+            });
+            test('que ruido hace y que esta comiendo el gato', () => {
+                const gato = new Gato('Pepe',10);
+                const visitor = new visitanteGato();
+                gato.aceptar(visitor);
+                expect(gato.getNombre()).toBe('Pepe');
+                expect(gato.getEdad()).toBe(10);
+                expect(visitor.totalEdad).toBe(70);
+                expect(visitor.ruido).toBe('miau miau');
+                expect(visitor.comida).toBe('Comiendo pescado');
+                   
+                });
+                test('que ruido hace y que esta comiendo el perro', () => {
+                    const perro = new Perro('roko',20);
+                    const visitor = new visitantePerro();
+                    perro.aceptar(visitor);
+                    expect(perro.getNombre()).toBe('roko');
+                    expect(perro.getEdad()).toBe(20);
+                    expect(visitor.totalEdad).toBe(140);
+                    expect(visitor.ruido).toBe('Guau Guau');
+                    expect(visitor.comida).toBe('Comiendo carne');
+                       
+                    });
 
