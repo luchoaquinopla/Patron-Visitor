@@ -13,7 +13,7 @@ test('calcular el total correctamente', () => {
 test('visitarProducto', () => {
     const producto1 = new producto('Producto de prueba', 100);
     const visitor = new MiVisitor();
-    visitor.aceptar(producto1);
+    visitor.visitarProducto(producto1);
     expect(visitor.total).toBe(100)
     expect(visitor.totalNombre).toBe('Producto de prueba'); // Accede a la propiedad total a través de la instancia de MiVisitor
 });
@@ -22,7 +22,7 @@ test('visitarImpuesto', () => {
     const impuesto1 = new impuesto(0.15);
     const visitor = new MiVisitor();
     impuesto1.producto = celular;
-    visitor.aceptarImpuesto1(impuesto1); 
+    visitor.visitarImpuesto(impuesto1); 
     expect(visitor.totalTasa).toBe(0.15);
     expect(visitor.total).toBe(1150); // Verificar que el total se actualiza correctamente según el impuesto
 });
@@ -32,7 +32,7 @@ test('visitarDescuento', () => {
     const descuento1 = new descuento(0.10);
     const visitor = new MiVisitor();
     descuento1.producto = celular;
-    visitor.aceptarDescuento(descuento1); // Aceptar el descuento en el visitor
+    visitor.visitarDescuento(descuento1); // Aceptar el descuento en el visitor
     expect(visitor.totalDescuento).toBe(900);
     expect(visitor.totalCantidad).toBe(0.10); // Verificar que el total se actualiza correctamente según el descuento
 });

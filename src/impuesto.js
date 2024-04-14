@@ -1,5 +1,7 @@
-class impuesto {
+const visitor = require('./visitor');
+class impuesto extends visitor {
     constructor(tasa) {
+      super();
       this.tasa = tasa;
     }
     getTasa() {
@@ -8,7 +10,7 @@ class impuesto {
     setTasa(tasa) {
         this.tasa = tasa;
     }
-    aceptarImpuesto(visitor) {
+    aceptar(visitor) {
       visitor.visitarImpuesto(this);
     }
   }

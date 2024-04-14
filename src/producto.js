@@ -1,6 +1,7 @@
-
-class producto  {
+const visitor = require('./visitor');
+class producto extends visitor {
     constructor(nombre, precio) {
+        super();
       this.nombre = nombre;
       this.precio = precio;
     }

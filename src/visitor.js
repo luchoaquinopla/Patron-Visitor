@@ -2,9 +2,8 @@ class visitor {
 visitarProducto() {}
 visitarImpuesto() {}
 visitarDescuento() {}
-aceptar(visitor) {}
-aceptarImpuesto(visitor) {}
-aceptarDescuento(visitor) {}
+aceptar() {}
+
     
   }
   module.exports = visitor;    

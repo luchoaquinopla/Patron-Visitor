@@ -10,24 +10,24 @@ class MiVisitor extends visitor {
       this.totalDescuento = 0;
     }
   
-    aceptar(visitarProducto) {
+    visitarProducto(producto) {
       
-        this.total+= visitarProducto.getPrecio();// Devuelve el precio del producto para poder utilizarlo en otras operaciones
-        this.totalNombre += visitarProducto.getNombre();
+        this.total+= producto.getPrecio();// Devuelve el precio del producto para poder utilizarlo en otras operaciones
+        this.totalNombre += producto.getNombre();
       }
   
-  aceptarDescuento(visitarDescuento){
-    const producto = visitarDescuento.producto; // Obtiene el producto al que se aplica el descuento
-    this.totalCantidad = visitarDescuento.getCantidad();
-    const descuentoTotal = producto.getPrecio()*visitarDescuento.getCantidad();
+      visitarDescuento(descuento){
+    const producto = descuento.producto; // Obtiene el producto al que se aplica el descuento
+    this.totalCantidad = descuento.getCantidad();
+    const descuentoTotal = producto.getPrecio()*descuento.getCantidad();
     this.totalDescuento -= descuentoTotal-producto.getPrecio();
   }
 
-  aceptarImpuesto1(visitarImpuesto) {
-    const producto = visitarImpuesto.producto; // Obtiene el producto al que se aplica el impuesto
-   const impuestoTotal = producto.getPrecio()*visitarImpuesto.getTasa();
+  visitarImpuesto(impuesto) {
+    const producto = impuesto.producto; // Obtiene el producto al que se aplica el impuesto
+   const impuestoTotal = producto.getPrecio()*impuesto.getTasa();
    this.total += impuestoTotal+producto.getPrecio();
-    this.totalTasa += visitarImpuesto.getTasa();
+    this.totalTasa += impuesto.getTasa();
     }
   }
 

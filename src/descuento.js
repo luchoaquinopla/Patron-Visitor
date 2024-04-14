@@ -1,5 +1,7 @@
-class descuento {
+const visitor = require('./visitor');
+class descuento extends visitor{
     constructor(cantidad){
+        super();
         this.cantidad = cantidad
     }
     getCantidad(){
@@ -8,7 +10,7 @@ class descuento {
     setCantidad(cantidad){
         this.cantidad = cantidad
     }
-    aceptarDescuento(visitor) {
+    aceptar(visitor) {
         visitor.visitarDescuento(this);
       }
     }
