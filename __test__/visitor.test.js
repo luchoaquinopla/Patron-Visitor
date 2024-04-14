@@ -1,6 +1,6 @@
 const Perro = require('../src/Perro');
 const visitantePerro = require('../src/visitantePerro');
-const Gato = require('../src/Gato');
+const Gato = require('../src/gato');
 const visitanteGato = require('../src/visitanteGato');
 
 test('datos perro', () => {
