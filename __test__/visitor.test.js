@@ -7,24 +7,24 @@ test('datos perro', () => {
 const perro = new Perro('Pepe',12);
 const visitor = new visitantePerro();
 perro.aceptar(visitor);
-expect(perro.getNombre()).toBe('Pepe');
-expect(perro.getEdad()).toBe(12);
+expect(visitor.totalNombre).toBe('Pepe');
+expect(visitor.edad).toBe(12);
    
 });
     test('datos gato', () => {
     const gato = new Gato('Don Gato',12);
     const visitor = new visitanteGato();
     gato.aceptar(visitor);
-    expect(gato.getNombre()).toBe('Don Gato');
-    expect(gato.getEdad()).toBe(12);
+    expect(visitor.totalNombre).toBe('Don Gato');
+    expect(gato.edad).toBe(12);
        
     });
     test('calcular años perrunos a años humanos', () => {
         const perro = new Perro('Pepe',12);
         const visitor = new visitantePerro();
         perro.aceptar(visitor);
-        expect(perro.getNombre()).toBe('Pepe');
-        expect(perro.getEdad()).toBe(12);
+        expect(visitor.totalNombre).toBe('Pepe');
+        expect(visitor.edad).toBe(12);
         expect(visitor.totalEdad).toBe(84);
            
         });
@@ -32,8 +32,8 @@ expect(perro.getEdad()).toBe(12);
             const gato = new Gato('Pepe',10);
             const visitor = new visitanteGato();
             gato.aceptar(visitor);
-            expect(gato.getNombre()).toBe('Pepe');
-            expect(gato.getEdad()).toBe(10);
+            expect(visitor.totalNombre).toBe('Pepe');
+            expect(visitor.edad).toBe(10);
             expect(visitor.totalEdad).toBe(70);
                
             });
