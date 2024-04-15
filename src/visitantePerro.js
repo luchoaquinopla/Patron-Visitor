@@ -12,7 +12,7 @@ class vistantePerro extends Ivisitor {
        this.totalNombre += perro.getNombre();
        this.totalEdad = perro.getEdad()*7;
        this.edad = perro.getEdad();
-       this.ruido = perro.ruido();
+       this.ruido = perro.Ruido();
        this.comida = perro.comer();
  
  }

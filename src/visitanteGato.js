@@ -12,7 +12,7 @@ class visitanteGato extends Ivisitor {
        this.totalNombre += gato.getNombre();
        this.totalEdad = gato.getEdad()*7;
        this.edad = gato.getEdad();
-       this.ruido = gato.ruido();
+       this.ruido = gato.Ruido();
        this.comida = gato.comer();
  
  }

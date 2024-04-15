@@ -19,7 +19,7 @@ class Gato extends Ianimal {
     setEdad(edad) {
         return this.edad = edad;
     }
-    ruido() {  
+    Ruido() {  
         return 'miau miau';
     }
     comer() {
